@@ -1,7 +1,6 @@
 __author__ = 'ssi'
 import sys
 import argparse
-import func
 import buildmd
 
 
