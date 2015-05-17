@@ -6,7 +6,6 @@ import buildmd
 
 def getParser():
 	parser = argparse.ArgumentParser()
-	# parser.add_argument('-m', '--markdown', nargs = 1, required = True)
 	parser.add_argument('-cat', '--categories', nargs = '+')
 	parser.add_argument('-t', '--type', choices = ['post', 'page'], default = 'post')
 	parser.add_argument('-page', action = 'store_const', const = True)
