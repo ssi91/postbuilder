@@ -42,7 +42,7 @@ class MD:
 			sourse = self.sourcePath
 			if (type == "post"):
 				sourse += "_posts/"
-			f = open("post.html", 'r')
+			f = open("post.md", 'r')
 			post = f.read()
 			f.close()
 			f = open(self.filename, 'a')
