@@ -8,15 +8,25 @@ class MD:
 
 	def createMarkdown(self, filetitle, type = 'post'):
 		import datetime
+		import os
 
 		sourse = self.sourcePath
 		if (type == "post"):
 			sourse += "_posts/"
 		now_time = datetime.datetime.now()
 		filename = now_time.strftime("%Y-%m-%d") + '-' + filetitle + '.markdown'
-		f = open(sourse + filename, 'w')
-		f.close()
-		self.filename = sourse + filename
+		if not os.path.exists(sourse + filename):
+			f = open(sourse + filename, 'w')
+			f.close()
+			self.filename = sourse + filename
+		else:
+			rw = raw_input("File already exist. Rewrite?(use 'y' or 'n'): ")
+			if rw == 'y':
+				f = open(sourse + filename, 'w')
+				f.close()
+				self.filename = sourse + filename
+			elif rw == 'n':
+				os._exit(0)
 
 	def writeMeta(self, title, categories = [], type = 'post'):
 		if self.filename:
